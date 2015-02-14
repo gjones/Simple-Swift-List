@@ -31,7 +31,6 @@ class ListTableViewController: UITableViewController {
         myList = context.executeFetchRequest(fetchReq, error: nil)!
         tableView.reloadData()
         
-        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
@@ -39,7 +38,7 @@ class ListTableViewController: UITableViewController {
             
             let index = tableView.indexPathForSelectedRow()?.row
             var selectedItem: NSManagedObject = myList[index!] as! NSManagedObject
-            let IVC: ItemViewController = segue.destinationViewController as! ItemViewController
+            let IVC: ItemSeeViewController = segue.destinationViewController as! ItemSeeViewController
             IVC.item = selectedItem.valueForKey("item") as? String //added ? after as --> as?
             IVC.quantity = selectedItem.valueForKey("quantity") as? String
             IVC.info = selectedItem.valueForKey("info") as? String

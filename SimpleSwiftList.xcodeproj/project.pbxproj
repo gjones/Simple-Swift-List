@@ -16,6 +16,7 @@
 		198484281A8F9D9A00123398 /* SimpleSwiftListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198484271A8F9D9A00123398 /* SimpleSwiftListTests.swift */; };
 		198484321A8F9E1E00123398 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198484311A8F9E1E00123398 /* Model.swift */; };
 		198484341A8F9E9D00123398 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198484331A8F9E9D00123398 /* ItemViewController.swift */; };
+		198484361A8FA52800123398 /* ItemSeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198484351A8FA52800123398 /* ItemSeeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		198484271A8F9D9A00123398 /* SimpleSwiftListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleSwiftListTests.swift; sourceTree = "<group>"; };
 		198484311A8F9E1E00123398 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		198484331A8F9E9D00123398 /* ItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
+		198484351A8FA52800123398 /* ItemSeeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSeeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				198484131A8F9D9A00123398 /* ListTableViewController.swift */,
 				198484331A8F9E9D00123398 /* ItemViewController.swift */,
 				198484151A8F9D9A00123398 /* Main.storyboard */,
+				198484351A8FA52800123398 /* ItemSeeViewController.swift */,
 				198484181A8F9D9A00123398 /* Images.xcassets */,
 				1984841A1A8F9D9A00123398 /* LaunchScreen.xib */,
 				198484101A8F9D9A00123398 /* SimpleSwiftList.xcdatamodeld */,
@@ -226,6 +229,7 @@
 				198484341A8F9E9D00123398 /* ItemViewController.swift in Sources */,
 				198484121A8F9D9A00123398 /* SimpleSwiftList.xcdatamodeld in Sources */,
 				198484321A8F9E1E00123398 /* Model.swift in Sources */,
+				198484361A8FA52800123398 /* ItemSeeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
