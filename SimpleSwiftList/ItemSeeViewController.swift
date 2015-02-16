@@ -67,8 +67,7 @@ class ItemSeeViewController: UIViewController, UIScrollViewDelegate {
     @IBAction func cancelTapped(sender: AnyObject) {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
-
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -77,11 +76,10 @@ class ItemSeeViewController: UIViewController, UIScrollViewDelegate {
         labelInfo.text = info
         
         if price != nil {
-//            var cost = price?.toInt()
-            var cost = 4
+            var cost = price?.toInt()
             var amount = quantity?.toInt()
-            var totes = cost * amount!
-            labelTotalPrice.text = "£ \(totes)"
+            var totes = cost! * amount!
+            self.labelTotalPrice.text = "£ \(totes)"
         } else {
             labelTotalPrice.text = "None"
         }
@@ -111,6 +109,7 @@ class ItemSeeViewController: UIViewController, UIScrollViewDelegate {
         contentView.layer.shadowRadius = 5
         view.addSubview(contentView)
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
