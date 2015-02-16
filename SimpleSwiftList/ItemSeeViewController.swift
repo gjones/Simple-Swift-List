@@ -9,7 +9,10 @@
 import UIKit
 import CoreData
 
-class ItemSeeViewController: UIViewController {
+class ItemSeeViewController: UIViewController, UIScrollViewDelegate {
+
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var contentView: UIView!
     
     @IBOutlet weak var labelItem: UILabel!
     @IBOutlet weak var labelQuantity: UILabel!
@@ -65,6 +68,7 @@ class ItemSeeViewController: UIViewController {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -73,9 +77,10 @@ class ItemSeeViewController: UIViewController {
         labelInfo.text = info
         
         if price != nil {
-            var cost = price?.toInt()
+//            var cost = price?.toInt()
+            var cost = 4
             var amount = quantity?.toInt()
-            var totes = cost! * amount!
+            var totes = cost * amount!
             labelTotalPrice.text = "£ \(totes)"
         } else {
             labelTotalPrice.text = "None"
@@ -92,6 +97,19 @@ class ItemSeeViewController: UIViewController {
             self.title = item
             labelEdit.text = "Edit \(item!)"
         }
+        
+        // scrollView stuff
+        
+        scrollView.userInteractionEnabled = true
+        scrollView.contentSize = CGSizeMake(0, 600)
+        scrollView.indicatorStyle = .Black
+        view.addSubview(scrollView)
+        
+        contentView.layer.shadowColor = UIColor.blackColor().CGColor
+        contentView.layer.shadowOffset = CGSize(width: 0, height: -0.5)
+        contentView.layer.shadowOpacity = 0.5
+        contentView.layer.shadowRadius = 5
+        view.addSubview(contentView)
     }
 
     override func didReceiveMemoryWarning() {
@@ -100,12 +118,29 @@ class ItemSeeViewController: UIViewController {
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         self.view.endEditing(true)
+        self.scrollView.endEditing(true)
         
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    // Scroll View 
+    func scrollViewDidScroll(scrollView: UIScrollView){
+        /* Gets called when user scrolls or drags */
+        scrollView.alpha = 0.50
+    }
+    
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView){
+        /* Gets called only after scrolling */
+        scrollView.alpha = 1
+    }
+    
+    func scrollViewDidEndDragging(scrollView: UIScrollView,
+        willDecelerate decelerate: Bool){
+            scrollView.alpha = 1
     }
     
 }
