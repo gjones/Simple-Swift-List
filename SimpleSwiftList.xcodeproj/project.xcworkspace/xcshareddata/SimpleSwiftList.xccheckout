@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>35BD27DB-ABA4-4867-8575-6A83891E5E2E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SimpleSwiftList</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E3ACC81E8D77C8D0BC1AB6FE9A83BE82B5A108FE</key>
+		<string>https://github.com/gjones/Simple-Swift-List.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SimpleSwiftList.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E3ACC81E8D77C8D0BC1AB6FE9A83BE82B5A108FE</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/gjones/Simple-Swift-List.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E3ACC81E8D77C8D0BC1AB6FE9A83BE82B5A108FE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E3ACC81E8D77C8D0BC1AB6FE9A83BE82B5A108FE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SimpleSwiftList</string>
+		</dict>
+	</array>
+</dict>
+</plist>
