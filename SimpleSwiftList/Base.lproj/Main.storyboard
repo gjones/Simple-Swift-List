@@ -111,7 +111,6 @@
         <!--Item See View Controller-->
         <scene sceneID="yT7-xO-IPp">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LG1-bz-0AV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="1K3-mL-8Jf" customClass="ItemSeeViewController" customModule="SimpleSwiftList" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3Hu-Hd-YHk"/>
@@ -199,15 +198,6 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eLH-LE-qgd">
-                                        <rect key="frame" x="108" y="283" width="61" height="30"/>
-                                        <state key="normal" title="Update">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="updateTapped:" destination="1K3-mL-8Jf" eventType="touchUpInside" id="WfG-L1-zXe"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="£" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vuk-Io-yZe">
                                         <rect key="frame" x="16" y="218" width="17" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -219,6 +209,15 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eLH-LE-qgd">
+                                        <rect key="frame" x="158" y="284" width="59" height="30"/>
+                                        <state key="normal" title="Update">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="updateTapped:" destination="1K3-mL-8Jf" eventType="touchUpInside" id="WfG-L1-zXe"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.90214646464646464" green="0.90214646464646464" blue="0.90214646464646464" alpha="1" colorSpace="calibratedRGB"/>
                             </scrollView>
@@ -247,6 +246,7 @@
                         <outlet property="textFieldQuantity" destination="uEG-Mr-eag" id="kKU-Gn-8rt"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LG1-bz-0AV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1703.5" y="1043.5"/>
         </scene>

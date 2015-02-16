@@ -38,8 +38,6 @@ class ItemViewController: UIViewController, UITextFieldDelegate {
             title = item
         }
         
-        
-        
     }
     
     @IBAction func saveTapped(sender: AnyObject) {
@@ -88,7 +86,5 @@ class ItemViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-    
-    
     
 }
