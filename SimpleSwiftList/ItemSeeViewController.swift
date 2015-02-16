@@ -15,14 +15,17 @@ class ItemSeeViewController: UIViewController {
     @IBOutlet weak var labelQuantity: UILabel!
     @IBOutlet weak var labelInfo: UILabel!
     @IBOutlet weak var labelEdit: UILabel!
+    @IBOutlet weak var labelTotalPrice: UILabel!
     
     @IBOutlet weak var textFieldItem: UITextField!
     @IBOutlet weak var textFieldQuantity: UITextField!
     @IBOutlet weak var textFieldInfo: UITextField!
+    @IBOutlet weak var textFieldPrice: UITextField!
     
     var item: String?
     var quantity: String?
     var info: String?
+    var price: String?
     
     var existingItem: NSManagedObject!
     
@@ -42,6 +45,7 @@ class ItemSeeViewController: UIViewController {
             existingItem.setValue(textFieldItem.text as String, forKey: "item")
             existingItem.setValue(textFieldQuantity.text as String, forKey: "quantity")
             existingItem.setValue(textFieldInfo.text as String, forKey: "info")
+            existingItem.setValue(textFieldPrice.text as String, forKey: "price")
         } else {
             //Create instance of our data model and initialize
             var newItem = Model(entity: entity!, insertIntoManagedObjectContext: context)
@@ -50,6 +54,7 @@ class ItemSeeViewController: UIViewController {
             newItem.item = textFieldItem.text
             newItem.quantity = textFieldQuantity.text
             newItem.info = textFieldInfo.text
+            newItem.price = textFieldPrice.text
         }
         
         //Save our context
@@ -69,10 +74,21 @@ class ItemSeeViewController: UIViewController {
         labelQuantity.text = quantity
         labelInfo.text = info
         
+        if price != nil {
+            
+            var cost = price?.toInt()
+            var amount = quantity?.toInt()
+            var totes = cost! * amount!
+            labelTotalPrice.text = "£ \(totes)"
+        } else {
+            labelTotalPrice.text = "None"
+        }
+        
         if (existingItem != nil) {
             textFieldItem.text = item
             textFieldQuantity.text = quantity
             textFieldInfo.text = info
+            textFieldPrice.text = price
         }
         
         if item != nil {

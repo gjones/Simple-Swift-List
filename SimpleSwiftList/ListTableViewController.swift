@@ -42,6 +42,7 @@ class ListTableViewController: UITableViewController {
             IVC.item = selectedItem.valueForKey("item") as? String //added ? after as --> as?
             IVC.quantity = selectedItem.valueForKey("quantity") as? String
             IVC.info = selectedItem.valueForKey("info") as? String
+            IVC.price = selectedItem.valueForKey("price") as? String
             IVC.existingItem = selectedItem
         }
     }
