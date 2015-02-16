@@ -12,44 +12,50 @@ import CoreData
 
 class ListTableViewController: UITableViewController {
     
+    // Create an empty array
     var myList:Array<AnyObject> = []
-    //var myList = []
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func viewDidAppear(animated: Bool) {
         
+        // Reference to our app delegate
         let appDel:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        // Reference NSManaged object context
         let context:NSManagedObjectContext = appDel.managedObjectContext!
         let fetchReq = NSFetchRequest(entityName: "List")
         
+        // Set title for table view
         self.title = "Shopping List"
+        
+        // Fetch and reload table data
         myList = context.executeFetchRequest(fetchReq, error: nil)!
         tableView.reloadData()
         
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if segue.identifier == "update" { //prevent nil segues
-            
+        
+        // Specify specific segue, prevents nil
+        if segue.identifier == "update" {
             let index = tableView.indexPathForSelectedRow()?.row
             var selectedItem: NSManagedObject = myList[index!] as! NSManagedObject
-            let IVC: ItemSeeViewController = segue.destinationViewController as! ItemSeeViewController
-            IVC.item = selectedItem.valueForKey("item") as? String //added ? after as --> as?
-            IVC.quantity = selectedItem.valueForKey("quantity") as? String
-            IVC.info = selectedItem.valueForKey("info") as? String
-            IVC.price = selectedItem.valueForKey("price") as? String
-            IVC.existingItem = selectedItem
+            let seeViewController: ItemSeeViewController = segue.destinationViewController as! ItemSeeViewController
+            
+            // Pass data through to see item page
+            seeViewController.item = selectedItem.valueForKey("item") as? String
+            seeViewController.quantity = selectedItem.valueForKey("quantity") as? String
+            seeViewController.info = selectedItem.valueForKey("info") as? String
+            seeViewController.price = selectedItem.valueForKey("price") as? String
+            seeViewController.existingItem = selectedItem
         }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: - Table view data source
@@ -61,7 +67,6 @@ class ListTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return myList.count
     }
-    
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellID: NSString = "Cell"
@@ -77,15 +82,11 @@ class ListTableViewController: UITableViewController {
         return cell
     }
     
-    
-    
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return NO if you do not want the specified item to be editable.
         return true
     }
-    
-    
     
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -103,31 +104,5 @@ class ListTableViewController: UITableViewController {
             }
         }
     }
-    
-    
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView!, moveRowAtIndexPath fromIndexPath: NSIndexPath!, toIndexPath: NSIndexPath!) {
-    
-    }
-    */
-    
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView!, canMoveRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
-    // Return NO if you do not want the item to be re-orderable.
-    return true
-    }
-    */
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    }
-    */
-    
+        
 }

@@ -41,35 +41,32 @@ class ItemViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func saveTapped(sender: AnyObject) {
-        //Reference to our app delegate
         
+        // Reference to our app delegate
         let appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
-        //Reference NSManaged object context
-        
+        // Reference NSManaged object context
         let context: NSManagedObjectContext = appDel.managedObjectContext! //I unwrapped but tutorial didn't say that
         let entity = NSEntityDescription.entityForName("List", inManagedObjectContext: context)
         
-        //Check if item exists
-        
+        // Check if item exists
         if (existingItem != nil) {
             existingItem.setValue(textFieldItem.text as String, forKey: "item")
             existingItem.setValue(textFieldQuantity.text as String, forKey: "quantity")
             existingItem.setValue(textFieldInfo.text as String, forKey: "info")
         } else {
-            //Create instance of our data model and initialize
+            // Create instance of our data model and initialize
             var newItem = Model(entity: entity!, insertIntoManagedObjectContext: context)
-            
-            //Map our properties
+            // Map our properties
             newItem.item = textFieldItem.text
             newItem.quantity = textFieldQuantity.text
             newItem.info = textFieldInfo.text
         }
         
-        //Save our context
+        // Save our context
         context.save(nil)
         
-        //navigate back to root vc
+        // Navigate back to previous controller
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
@@ -79,18 +76,12 @@ class ItemViewController: UIViewController, UITextFieldDelegate {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-    //iOS Touch Functions
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         self.view.endEditing(true)
-        
     }
     
-    //UITextField Delegate
-    //Hide keyboard when click return
-    //Not working before, fixed it by setting delegates to self in viewDidLoad
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

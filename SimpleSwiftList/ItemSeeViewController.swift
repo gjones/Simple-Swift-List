@@ -30,27 +30,25 @@ class ItemSeeViewController: UIViewController {
     var existingItem: NSManagedObject!
     
     @IBAction func updateTapped(sender: AnyObject) {
-        //Reference to our app delegate
         
+        // Reference to our app delegate
         let appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
-        //Reference NSManaged object context
-        
-        let context: NSManagedObjectContext = appDel.managedObjectContext! //I unwrapped but tutorial didn't say that
+        // Reference NSManaged object context
+        let context: NSManagedObjectContext = appDel.managedObjectContext!
         let entity = NSEntityDescription.entityForName("List", inManagedObjectContext: context)
         
-        //Check if item exists
-        
+        // Check if item exists
         if (existingItem != nil) {
             existingItem.setValue(textFieldItem.text as String, forKey: "item")
             existingItem.setValue(textFieldQuantity.text as String, forKey: "quantity")
             existingItem.setValue(textFieldInfo.text as String, forKey: "info")
             existingItem.setValue(textFieldPrice.text as String, forKey: "price")
         } else {
-            //Create instance of our data model and initialize
+            // Create instance of our data model and initialize
             var newItem = Model(entity: entity!, insertIntoManagedObjectContext: context)
             
-            //Map our properties
+            // Map our properties
             newItem.item = textFieldItem.text
             newItem.quantity = textFieldQuantity.text
             newItem.info = textFieldInfo.text
@@ -75,7 +73,6 @@ class ItemSeeViewController: UIViewController {
         labelInfo.text = info
         
         if price != nil {
-            
             var cost = price?.toInt()
             var amount = quantity?.toInt()
             var totes = cost! * amount!
