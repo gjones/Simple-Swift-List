@@ -108,6 +108,25 @@ class ItemSeeViewController: UIViewController, UIScrollViewDelegate {
         contentView.layer.shadowOpacity = 0.5
         contentView.layer.shadowRadius = 5
         view.addSubview(contentView)
+        
+        // Adding ability to swipe back to previous page
+        var swipeRight = UISwipeGestureRecognizer(target: self, action: "swiped:")
+        swipeRight.direction = UISwipeGestureRecognizerDirection.Right
+        self.view.addGestureRecognizer(swipeRight)
+        
+    }
+    
+    func swiped(gesture: UIGestureRecognizer) {
+        
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizerDirection.Right:
+                print("User swiped right")
+                self.navigationController?.popToRootViewControllerAnimated(true)
+            default:
+                break
+            }
+        }
     }
 
 
